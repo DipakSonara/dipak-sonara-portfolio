@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d141d">
+<title>Dipak Sonara</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Dipak Sonara — Senior Flutter / Cross-Platform Mobile Engineer. 15 years shipping mobile apps, a decade of it in digital banking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a release manifest. Hero + pubspec card, then numbered sections read like a changelog. */
+:root {
+  --bg: #0d141d;
+  --surface: #131d29;
+  --line: #22303f;
+  --fg: #e6edf3;
+  --muted: #8b9bab;
+  --accent: #54c5f8;
+  --accent-2: #f2b84b;
+  --accent-ink: #062033;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f3f6f9; --surface: #ffffff; --line: #d6dee6; --fg: #0f1a26; --muted: #556677;
+    --accent: #0a6fb0; --accent-2: #a8650a; --accent-ink: #ffffff; color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f3f6f9; --surface: #ffffff; --line: #d6dee6; --fg: #0f1a26; --muted: #556677;
+  --accent: #0a6fb0; --accent-2: #a8650a; --accent-ink: #ffffff; color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 1rem/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+
+.mono { font-family: var(--mono); }
+.label { font: 500 0.72rem/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* Header */
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { font: 800 1.15rem/1 var(--display); text-decoration: none; letter-spacing: -0.01em; }
+.logo span { color: var(--accent); font-family: var(--mono); font-weight: 500; font-size: 0.95rem; }
+nav { display: flex; align-items: center; gap: 22px; }
+nav a.nl { text-decoration: none; font: 500 0.8rem var(--mono); color: var(--muted); letter-spacing: 0.04em; }
+nav a.nl:hover { color: var(--fg); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
+  font: 600 0.88rem/1 var(--body); padding: 11px 16px; border-radius: 8px;
+  border: 1px solid var(--line); background: transparent; color: var(--fg);
+  transition: border-color .2s, background .2s, transform .2s;
+}
+.btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.small { padding: 8px 12px; font-size: 0.8rem; }
+@media (max-width: 640px) { nav a.nl { display: none; } }
+
+/* Hero */
+.hero { padding-block: 64px 56px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+@media (max-width: 880px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; } .hero { padding-block: 40px; } }
+.tag { display: inline-flex; align-items: center; gap: 10px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 22%, transparent); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-2) 0%, transparent); } }
+h1 {
+  font: 800 clamp(2.9rem, 8vw, 5.6rem)/0.95 var(--display);
+  letter-spacing: -0.035em; margin: 22px 0 18px; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--accent); }
+.role { font: 600 clamp(1.1rem, 2.4vw, 1.4rem)/1.3 var(--display); margin: 0 0 18px; }
+.role .sep { color: var(--muted); font-weight: 400; }
+.bio { color: var(--muted); max-width: 58ch; margin: 0 0 28px; font-size: 1.05rem; }
+.bio strong { color: var(--fg); font-weight: 500; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* pubspec card */
+.manifest { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
+.manifest .bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.manifest .lights { display: flex; gap: 6px; }
+.manifest .lights i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); display: block; }
+.manifest pre { margin: 0; padding: 18px 20px 22px; overflow-x: auto; font: 400 0.82rem/1.75 var(--mono); color: var(--fg); }
+.k { color: var(--accent); } .s { color: var(--accent-2); } .c { color: var(--muted); }
+.manifest .foot { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.manifest .foot div { padding: 12px 16px; display: grid; gap: 2px; }
+.manifest .foot div + div { border-left: 1px solid var(--line); }
+.manifest .foot b { font: 600 0.92rem var(--display); }
+
+/* Shipped-for strip */
+.clients { border-block: 1px solid var(--line); }
+.clients .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; padding-block: 22px; }
+.clients ul { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; margin: 0; padding: 0; }
+.clients li { font: 600 1rem var(--display); color: var(--fg); opacity: .85; }
+
+/* Sections */
+section.block { padding-block: 88px 24px; }
+@media (max-width: 640px) { section.block { padding-block: 64px 16px; } }
+.sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 760px; }
+.sec-head .label b { color: var(--accent); font-weight: 500; }
+h2 { font: 800 clamp(1.9rem, 4.4vw, 3rem)/1.05 var(--display); letter-spacing: -0.025em; margin: 0; text-wrap: balance; }
+.sec-head p { color: var(--muted); margin: 0; max-width: 60ch; }
+
+/* System cards */
+.system { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 980px) { .system { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .system { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; min-width: 0; transition: border-color .2s, transform .2s; }
+.card:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); transform: translateY(-2px); }
+.card .num { display: flex; justify-content: space-between; }
+.card h3 { font: 600 1.3rem/1.2 var(--display); margin: 0; }
+.card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.chips li { font: 400 0.72rem/1 var(--mono); padding: 6px 8px; border-radius: 6px; border: 1px solid var(--line); color: var(--fg); }
+
+/* Version history */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+.rel { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 32px; border-top: 1px solid var(--line); }
+.rel:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 720px) { .rel { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+.ver { display: grid; gap: 8px; align-content: start; }
+.ver .v { font: 800 2.4rem/1 var(--display); letter-spacing: -0.03em; }
+.pill { justify-self: start; font: 500 0.68rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.pill.live { color: var(--accent-2); border-color: color-mix(in srgb, var(--accent-2) 50%, var(--line)); }
+.rel h3 { font: 600 1.45rem/1.2 var(--display); margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 8px 0 16px; }
+.meta span { font: 400 0.8rem var(--mono); color: var(--muted); }
+.meta .at { color: var(--accent); }
+.notes { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; max-width: 70ch; }
+.notes li { position: relative; padding-left: 22px; color: var(--muted); }
+.notes li::before { content: "+"; position: absolute; left: 0; top: 0; font-family: var(--mono); color: var(--accent); }
+.notes li b { color: var(--fg); font-weight: 500; }
+.rel .chips { margin-top: 18px; }
+
+/* Stack */
+.stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+@media (max-width: 900px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .stack { grid-template-columns: minmax(0, 1fr); } }
+.stack > div { padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; min-width: 0; background: var(--surface); margin: 0 -1px -1px 0; }
+.stack h3 { font: 600 1.02rem var(--display); margin: 0; }
+.stack p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+/* Contact */
+.channel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+@media (max-width: 820px) { .channel { grid-template-columns: minmax(0, 1fr); } }
+.channel h2 { margin: 14px 0 16px; }
+.channel p { color: var(--muted); margin: 0; max-width: 52ch; }
+.links { display: grid; gap: 0; }
+.links .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.links .row:first-child { border-top: 1px solid var(--line); }
+.links .val { font: 500 0.92rem var(--mono); overflow-wrap: anywhere; user-select: all; }
+.links a.val { text-decoration: none; }
+.links a.val:hover { color: var(--accent); }
+.copy-msg { font: 400 0.75rem var(--mono); color: var(--accent-2); min-height: 1em; }
+
+footer { padding-block: 56px 40px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* load-in, from a visible resting state */
+@keyframes rise { from { transform: translateY(10px); opacity: .6; } to { transform: none; opacity: 1; } }
+.hero .copy > *, .manifest { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.hero .copy > *:nth-child(2) { animation-delay: .05s; }
+.hero .copy > *:nth-child(3) { animation-delay: .1s; }
+.hero .copy > *:nth-child(4) { animation-delay: .15s; }
+.hero .copy > *:nth-child(5) { animation-delay: .2s; }
+.manifest { animation-delay: .2s; }
+</style>
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">DIPAK<span>.dart</span></a>
+    <nav aria-label="Primary">
+      <a class="nl" href="#system">System</a>
+      <a class="nl" href="#history">History</a>
+      <a class="nl" href="#stack">Stack</a>
+      <a class="nl" href="#contact">Contact</a>
+      <a class="btn small" href="Dipak_Sonara_CV.pdf" target="_blank" rel="noopener">Download CV ↓</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="copy">
+        <div class="tag label"><span class="dot" aria-hidden="true"></span>Career release · v15 · stable channel</div>
+        <h1>Dipak Sonara<em>.</em></h1>
+        <p class="role">Senior Flutter Engineer <span class="sep">/</span> Cross-Platform Mobile</p>
+        <p class="bio">Ahmedabad-based mobile engineer with <strong>15 years in production</strong>, the last decade of it in <strong>digital banking</strong>. I build Flutter apps for iOS and Android from one codebase, and I came to Flutter from a long native iOS career in Swift, SwiftUI and Objective-C, so I can go down to the platform layer when a vendor SDK or a performance problem needs it.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:dipaksonara@gmail.com">Start a conversation →</a>
+          <a class="btn" href="https://www.linkedin.com/in/dipak-sonara" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <aside class="manifest" aria-label="Engineer profile">
+        <div class="bar">
+          <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="label">pubspec.yaml</span>
+        </div>
+<pre><span class="k">name</span>: dipak_sonara
+<span class="k">description</span>: <span class="s">Senior Flutter / cross-platform engineer</span>
+<span class="k">version</span>: 15.0.0+2011
+
+<span class="k">environment</span>:
+  <span class="k">base</span>: <span class="s">Ahmedabad, India · IST (UTC+5:30)</span>
+  <span class="k">mode</span>: <span class="s">remote · open to relocation</span>
+
+<span class="k">dependencies</span>:
+  <span class="k">flutter</span>: <span class="s">^2.5y</span>   <span class="c"># fintech, Melos monorepo</span>
+  <span class="k">swift</span>: <span class="s">^13y</span>     <span class="c"># native iOS since 2011</span>
+  <span class="k">backbase</span>: <span class="s">^10y</span>  <span class="c"># tier-1 banking</span>
+  <span class="k">flutter_bloc</span>: any
+  <span class="k">platform_channels</span>: any</pre>
+        <div class="foot">
+          <div><span class="label">Now</span><b>Aequilibrium</b></div>
+          <div><span class="label">Years</span><b>15</b></div>
+          <div><span class="label">Domain</span><b>Banking</b></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="clients">
+    <div class="wrap">
+      <span class="label">Shipped for</span>
+      <ul>
+        <li>Allica Bank</li>
+        <li>Saudi National Bank</li>
+        <li>EPIC Bank</li>
+        <li>EverBank</li>
+        <li>Banco Nacional de Costa Rica</li>
+        <li>Alliant</li>
+        <li>UFCU</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="block" id="system">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label"><b>01</b> / My system</span>
+        <h2>How I take a banking app from design file to both stores.</h2>
+        <p>The same four layers on every product, whether it is a Flutter monorepo or a native Backbase journey.</p>
+      </div>
+      <div class="system">
+        <article class="card">
+          <div class="num"><span class="label">A.01</span><span class="label">UI</span></div>
+          <h3>Interface</h3>
+          <p>Shared design-system packages and widgets that look native on both platforms, built straight from Figma and Apple's Human Interface Guidelines.</p>
+          <ul class="chips"><li>Flutter</li><li>SwiftUI</li><li>UIKit</li><li>Figma</li></ul>
+        </article>
+        <article class="card">
+          <div class="num"><span class="label">A.02</span><span class="label">State</span></div>
+          <h3>Architecture</h3>
+          <p>Clean Architecture with feature modules that are owned, tested and released on their own, then composed into one app.</p>
+          <ul class="chips"><li>flutter_bloc</li><li>get_it</li><li>Melos</li><li>MVVM</li></ul>
+        </article>
+        <article class="card">
+          <div class="num"><span class="label">A.03</span><span class="label">Platform</span></div>
+          <h3>Native &amp; security</h3>
+          <p>Swift and Kotlin platform channels for SDKs Flutter can't reach, and security that handles money: pinning, biometrics, encrypted storage.</p>
+          <ul class="chips"><li>Platform channels</li><li>Keychain</li><li>MFA</li><li>KYC</li></ul>
+        </article>
+        <article class="card">
+          <div class="num"><span class="label">A.04</span><span class="label">Ship</span></div>
+          <h3>Release</h3>
+          <p>Unit, widget, golden and BDD tests, feature flags for staged rollouts, and pipelines that build, sign and ship to the stores.</p>
+          <ul class="chips"><li>GitHub Actions</li><li>Fastlane</li><li>LaunchDarkly</li><li>SonarQube</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="history">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label"><b>02</b> / Version history</span>
+        <h2>A career built in production, mostly inside banks.</h2>
+        <p>Each version number is the years in production at the start of that release.</p>
+      </div>
+      <ol class="timeline" reversed>
+        <li class="rel">
+          <div class="ver"><span class="v">v13.0</span><span class="pill live">Flutter</span></div>
+          <div>
+            <h3>Senior Flutter Engineer</h3>
+            <div class="meta"><span class="at">Allica Bank · UK SME business bank</span><span>Jan 2024 – Jul 2026</span><span>Remote · contract</span></div>
+            <ul class="notes">
+              <li><b>Shipped the consumer app</b> for iOS and Android from one codebase: accounts and statements, transfers, cards, wallet top-up, payments, onboarding and KYC, lending, investment and insurance.</li>
+              <li><b>Melos monorepo</b> with independently owned and released feature packages, plus shared design-system and core packages.</li>
+              <li><b>Native bridging</b> with Swift and Kotlin platform channels for vendor SDKs, and add-to-app alongside existing native code.</li>
+              <li><b>Release control</b> with Firebase, DataDog and Segment instrumentation, LaunchDarkly flags and GitHub Actions store pipelines.</li>
+            </ul>
+            <ul class="chips"><li>flutter_bloc</li><li>auto_route</li><li>freezed</li><li>retrofit + dio</li><li>bdd_widget_test</li><li>mason</li></ul>
+          </div>
+        </li>
+        <li class="rel">
+          <div class="ver"><span class="v">v10.0</span><span class="pill live">Current</span></div>
+          <div>
+            <h3>Senior Mobile Engineer (iOS)</h3>
+            <div class="meta"><span class="at">Aequilibrium · Canada</span><span>Aug 2021 – Present</span><span>Remote · contract</span></div>
+            <ul class="notes">
+              <li><b>Backbase Journey and Composable architecture</b> banking apps for tier-1 banks, with journey modules composed into one banking app.</li>
+              <li><b>Journeys delivered:</b> onboarding, accounts and transactions, Pockets and transfers, integrated with Backbase identity and entitlements.</li>
+              <li><b>Programmes:</b> currently Saudi National Bank; previously close to a year on EPIC Bank.</li>
+              <li><b>Owns CI/CD</b> in Jenkins and Fastlane across QA, UAT and production.</li>
+            </ul>
+            <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>Combine</li><li>Backbase</li><li>Jenkins</li></ul>
+          </div>
+        </li>
+        <li class="rel">
+          <div class="ver"><span class="v">v4.0</span><span class="pill">Ownership</span></div>
+          <div>
+            <h3>Senior iOS Engineer</h3>
+            <div class="meta"><span class="at">Mobiquity · India</span><span>Apr 2015 – Aug 2021</span></div>
+            <ul class="notes">
+              <li><b>Several Backbase banking projects in parallel</b> under Scrum, owning CXP configuration and extensions.</li>
+              <li><b>Release owner</b> for QA, UAT and production builds, git branching strategy and code review.</li>
+              <li><b>Built the pipelines</b> in Jenkins with Fastlane and SonarQube quality gates, and mentored peers.</li>
+            </ul>
+            <ul class="chips"><li>Swift</li><li>Objective-C</li><li>Backbase CXP</li><li>Fastlane</li><li>SonarQube</li></ul>
+          </div>
+        </li>
+        <li class="rel">
+          <div class="ver"><span class="v">v0.1</span><span class="pill">Foundation</span></div>
+          <div>
+            <h3>iOS Developer → Senior iOS Developer</h3>
+            <div class="meta"><span class="at">Silver Touch · Evolutionary Systems · Communication Crafts</span><span>Aug 2011 – Mar 2015</span></div>
+            <ul class="notes">
+              <li><b>Learned the craft in Objective-C</b> on Cocoa Touch, with manual memory management and code-review discipline.</li>
+              <li><b>Sole developer</b> on a mobile app at Evolutionary Systems, owning delivery end to end.</li>
+              <li><b>Moved to Swift</b> at Communication Crafts, shipping features with cross-functional teams.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label"><b>03</b> / Stack</span>
+        <h2>Tools I reach for every week.</h2>
+      </div>
+      <div class="stack">
+        <div><span class="label">Flutter &amp; Dart</span><h3>App layer</h3><p>flutter_bloc, Riverpod, Provider, get_it, injectable, auto_route, flow_builder, freezed, json_serializable, retrofit, dio, mason, build_runner, i69n</p></div>
+        <div><span class="label">Native iOS</span><h3>Platform layer</h3><p>Swift, SwiftUI, Combine, UIKit, Objective-C, Core Data; Swift and Kotlin platform channels, add-to-app</p></div>
+        <div><span class="label">Architecture</span><h3>Structure</h3><p>Clean Architecture, Melos modular monorepo, MVVM, MVP, Backbase Journey &amp; Composable architecture</p></div>
+        <div><span class="label">Security</span><h3>Money-grade</h3><p>Secure storage and Keychain, certificate pinning, biometrics, MFA, jailbreak and root detection, encrypted persistence</p></div>
+        <div><span class="label">Quality</span><h3>Testing &amp; CI/CD</h3><p>Unit, widget, integration, golden and BDD tests; XCTest, XCUITest; GitHub Actions, Fastlane, Jenkins, Bitrise, SonarQube</p></div>
+        <div><span class="label">Observability</span><h3>In production</h3><p>Firebase, Crashlytics, DataDog, Segment, LaunchDarkly, Mixpanel; daily use of AI coding assistants for scaffolding, refactoring and tests</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="channel">
+        <div>
+          <span class="label"><b style="color:var(--accent);font-weight:500">04</b> / Open channel</span>
+          <h2>Ready for the next release.</h2>
+          <p>Open to senior Flutter and cross-platform roles, full-time or contract. Remote worldwide from IST, with good overlap with Europe and Asia, and open to relocation.</p>
+        </div>
+        <div class="links">
+          <div class="row">
+            <span class="label">Email</span>
+            <span style="display:flex;align-items:center;gap:10px;min-width:0">
+              <a class="val" href="mailto:dipaksonara@gmail.com" id="email">dipaksonara@gmail.com</a>
+              <button class="btn small" type="button" id="copy-email">Copy</button>
+            </span>
+          </div>
+          <div class="row"><span class="label">Phone</span><a class="val" href="tel:+918460870706">+91 84608 70706</a></div>
+          <div class="row"><span class="label">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/dipak-sonara" target="_blank" rel="noopener">in/dipak-sonara ↗</a></div>
+          <div class="row"><span class="label">Résumé</span><a class="val" href="Dipak_Sonara_CV.pdf" target="_blank" rel="noopener">Dipak_Sonara_CV.pdf ↓</a></div>
+          <div class="row"><span class="label">Based</span><span class="val">Ahmedabad, India · UTC+5:30</span></div>
+          <span class="copy-msg" id="copy-msg" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="label">© 2026 Dipak Sonara</span>
+    <span class="label">SENIOR_FLUTTER_ENGINEER / AHMEDABAD</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function () {
+  var msg = document.getElementById('copy-msg');
+  var text = 'dipaksonara@gmail.com';
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    msg.textContent = 'Selected. Press Ctrl/⌘ + C to copy.';
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function () { msg.textContent = 'Email copied.'; }, fallback);
+  } catch (e) { fallback(); }
+});
+</script>
+</body>
+</html>
