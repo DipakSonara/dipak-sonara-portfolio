@@ -6,7 +6,16 @@
 <meta name="theme-color" content="#0d141d">
 <title>Dipak Sonara</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Dipak Sonara — Senior Flutter / Cross-Platform Mobile Engineer. 15 years shipping mobile apps, a decade of it in digital banking.">
+<meta name="description" content="Dipak Sonara, Cross-Platform Mobile Engineer (Flutter, Swift, Kotlin). 15 years shipping iOS and Android apps, 10 of them in digital banking. Open to remote roles and relocation.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dipak Sonara · Cross-Platform Mobile Engineer">
+<meta property="og:description" content="One codebase, two app stores, bank-grade security. 15 years shipping mobile apps for banks in the UK, US, Saudi Arabia and Costa Rica.">
+<meta property="og:image" content="https://dipaksonara.github.io/dipak-sonara-portfolio/dipak.jpg">
+<meta property="og:url" content="https://dipaksonara.github.io/dipak-sonara-portfolio/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Dipak Sonara","jobTitle":"Cross-Platform Mobile Engineer","url":"https://dipaksonara.github.io/dipak-sonara-portfolio/","image":"https://dipaksonara.github.io/dipak-sonara-portfolio/dipak.jpg","email":"mailto:dipaksonara@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Ahmedabad","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/dipak-sonara-6b016a16/"],"knowsAbout":["Flutter","Dart","Swift","SwiftUI","Kotlin","iOS","Android","Cross-platform mobile development","Mobile banking","Backbase"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -100,6 +109,28 @@ h1 em { font-style: normal; color: var(--accent); }
 .bio { color: var(--muted); max-width: 58ch; margin: 0 0 28px; font-size: 1.05rem; }
 .bio strong { color: var(--fg); font-weight: 500; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* role highlight */
+.role-big { font: 800 clamp(1.5rem, 3.6vw, 2.3rem)/1.1 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; color: var(--accent); text-wrap: balance; }
+.platforms { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+.platforms li { font: 500 0.78rem/1 var(--mono); padding: 7px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--fg); }
+.platforms li.plus { border-style: dashed; color: var(--muted); }
+.hook { font: 600 clamp(1.05rem, 2vw, 1.25rem)/1.35 var(--display); margin: 0 0 14px; color: var(--fg); }
+
+/* profile head inside the card */
+.who { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.who img { width: 96px; height: 96px; border-radius: 12px; object-fit: cover; display: block; border: 1px solid var(--line); }
+.who b { display: block; font: 700 1.15rem/1.2 var(--display); }
+.who .r { color: var(--accent); font: 600 0.92rem/1.3 var(--display); }
+.status { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font: 500 0.72rem var(--mono); color: var(--accent-2); }
+
+/* proof strip */
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.proof > div { padding: 22px 0; display: grid; gap: 4px; }
+.proof > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+.proof b { font: 800 clamp(1.6rem, 3.4vw, 2.3rem)/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.proof span { color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 720px) { .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); } .proof > div:nth-child(3) { padding-left: 0; border-left: 0; } .proof > div:nth-child(n+3) { border-top: 1px solid var(--line); } }
 
 /* pubspec card */
 .manifest { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
@@ -197,7 +228,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top">DIPAK<span>.dart</span></a>
+    <a class="logo" href="#top">DIPAK<span>.mobile</span></a>
     <nav aria-label="Primary">
       <a class="nl" href="#system">System</a>
       <a class="nl" href="#history">History</a>
@@ -212,23 +243,35 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="hero">
     <div class="wrap">
       <div class="copy">
-        <div class="tag label"><span class="dot" aria-hidden="true"></span>Career release · v15 · stable channel</div>
+        <div class="tag label"><span class="dot" aria-hidden="true"></span>Open to work · Remote worldwide or relocation</div>
         <h1>Dipak Sonara<em>.</em></h1>
-        <p class="role">Senior Flutter Engineer <span class="sep">/</span> Cross-Platform Mobile</p>
-        <p class="bio">Ahmedabad-based mobile engineer with <strong>15 years in production</strong>, the last decade of it in <strong>digital banking</strong>. I build Flutter apps for iOS and Android from one codebase, and I came to Flutter from a long native iOS career in Swift, SwiftUI and Objective-C, so I can go down to the platform layer when a vendor SDK or a performance problem needs it.</p>
+        <p class="role-big">Cross-Platform Mobile Engineer</p>
+        <ul class="platforms" aria-label="Platforms">
+          <li>Flutter</li><li>iOS · Swift</li><li>Android · Kotlin</li><li class="plus">Bank-grade security</li>
+        </ul>
+        <p class="hook">One codebase. Two app stores. Built to bank standards from the first commit.</p>
+        <p class="bio">I've spent <strong>15 years shipping mobile apps</strong>, ten of them for <strong>banks</strong>. I build in Flutter for iOS and Android at once, and because I started in native iOS, I can drop into Swift or Kotlin whenever a vendor SDK, a payment flow or a performance problem needs it.</p>
         <div class="cta-row">
-          <a class="btn primary" href="mailto:dipaksonara@gmail.com">Start a conversation →</a>
-          <a class="btn" href="https://www.linkedin.com/in/dipak-sonara" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn primary" href="mailto:dipaksonara@gmail.com">Hire me for your app →</a>
+          <a class="btn" href="https://www.linkedin.com/in/dipak-sonara-6b016a16/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
 
       <aside class="manifest" aria-label="Engineer profile">
+        <div class="who">
+          <img src="dipak.jpg" alt="Dipak Sonara" width="96" height="96">
+          <div>
+            <b>Dipak Sonara</b>
+            <span class="r">Cross-Platform Mobile Engineer</span><br>
+            <span class="status"><span class="dot" aria-hidden="true"></span>Available for new roles</span>
+          </div>
+        </div>
         <div class="bar">
           <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
           <span class="label">pubspec.yaml</span>
         </div>
 <pre><span class="k">name</span>: dipak_sonara
-<span class="k">description</span>: <span class="s">Senior Flutter / cross-platform engineer</span>
+<span class="k">description</span>: <span class="s">Cross-platform mobile engineer</span>
 <span class="k">version</span>: 15.0.0+2011
 
 <span class="k">environment</span>:
@@ -250,9 +293,18 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
+  <div class="wrap">
+    <div class="proof">
+      <div><b>15 yrs</b><span>shipping mobile apps</span></div>
+      <div><b>10 yrs</b><span>inside digital banking</span></div>
+      <div><b>7</b><span>banks running my code</span></div>
+      <div><b>2 in 1</b><span>iOS and Android, one codebase</span></div>
+    </div>
+  </div>
+
   <div class="clients">
     <div class="wrap">
-      <span class="label">Shipped for</span>
+      <span class="label">Banking apps I've shipped</span>
       <ul>
         <li>Allica Bank</li>
         <li>Saudi National Bank</li>
@@ -268,9 +320,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="block" id="system">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label"><b>01</b> / My system</span>
-        <h2>How I take a banking app from design file to both stores.</h2>
-        <p>The same four layers on every product, whether it is a Flutter monorepo or a native Backbase journey.</p>
+        <span class="label"><b>01</b> / What I bring</span>
+        <h2>Write it once, ship it twice, keep it secure.</h2>
+        <p>Four things your team gets on day one, whether the app is a Flutter monorepo or a native banking super-app.</p>
       </div>
       <div class="system">
         <article class="card">
@@ -304,9 +356,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="block" id="history">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label"><b>02</b> / Version history</span>
-        <h2>A career built in production, mostly inside banks.</h2>
-        <p>Each version number is the years in production at the start of that release.</p>
+        <span class="label"><b>02</b> / Career changelog</span>
+        <h2>15 years of apps people trust with their money.</h2>
+        <p>Every version is a real job with real users. The number is my years in production when it started.</p>
       </div>
       <ol class="timeline" reversed>
         <li class="rel">
@@ -370,7 +422,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <div class="sec-head">
         <span class="label"><b>03</b> / Stack</span>
-        <h2>Tools I reach for every week.</h2>
+        <h2>Fluent in Flutter. Native when it matters.</h2>
       </div>
       <div class="stack">
         <div><span class="label">Flutter &amp; Dart</span><h3>App layer</h3><p>flutter_bloc, Riverpod, Provider, get_it, injectable, auto_route, flow_builder, freezed, json_serializable, retrofit, dio, mason, build_runner, i69n</p></div>
@@ -387,9 +439,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <div class="channel">
         <div>
-          <span class="label"><b style="color:var(--accent);font-weight:500">04</b> / Open channel</span>
-          <h2>Ready for the next release.</h2>
-          <p>Open to senior Flutter and cross-platform roles, full-time or contract. Remote worldwide from IST, with good overlap with Europe and Asia, and open to relocation.</p>
+          <span class="label"><b style="color:var(--accent);font-weight:500">04</b> / Let's work together</span>
+          <h2>Building for iOS and Android? Let's make it one great app.</h2>
+          <p>I'm open to senior cross-platform and mobile roles, full-time or contract. I work remotely from India (IST) with easy overlap with Europe, the Middle East and Asia, and I'm happy to relocate. I usually reply within a day.</p>
         </div>
         <div class="links">
           <div class="row">
@@ -400,7 +452,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             </span>
           </div>
           <div class="row"><span class="label">Phone</span><a class="val" href="tel:+918460870706">+91 84608 70706</a></div>
-          <div class="row"><span class="label">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/dipak-sonara" target="_blank" rel="noopener">in/dipak-sonara ↗</a></div>
+          <div class="row"><span class="label">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/dipak-sonara-6b016a16/" target="_blank" rel="noopener">in/dipak-sonara-6b016a16 ↗</a></div>
           <div class="row"><span class="label">Résumé</span><a class="val" href="Dipak_Sonara_CV.pdf" target="_blank" rel="noopener">Dipak_Sonara_CV.pdf ↓</a></div>
           <div class="row"><span class="label">Based</span><span class="val">Ahmedabad, India · UTC+5:30</span></div>
           <span class="copy-msg" id="copy-msg" aria-live="polite"></span>
@@ -413,7 +465,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <footer>
   <div class="wrap">
     <span class="label">© 2026 Dipak Sonara</span>
-    <span class="label">SENIOR_FLUTTER_ENGINEER / AHMEDABAD</span>
+    <span class="label">CROSS_PLATFORM_MOBILE_ENGINEER / ONE CODEBASE, TWO STORES</span>
   </div>
 </footer>
 
