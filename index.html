@@ -191,6 +191,18 @@ h2 { font: 800 clamp(1.9rem, 4.4vw, 3rem)/1.05 var(--display); letter-spacing: -
 .notes li b { color: var(--fg); font-weight: 500; }
 .rel .chips { margin-top: 18px; }
 
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+@media (max-width: 880px) { .about { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+.about-copy { display: grid; gap: 16px; max-width: 64ch; }
+.about-copy p { margin: 0; color: var(--muted); font-size: 1.02rem; }
+.about-copy p strong { color: var(--fg); font-weight: 500; }
+.about-copy .lead { color: var(--fg); font: 600 clamp(1.1rem, 2vw, 1.3rem)/1.45 var(--display); }
+.about-side { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: grid; gap: 14px; min-width: 0; }
+.about-side h3 { font: 600 1.1rem/1.3 var(--display); margin: 0; }
+.domains { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.domains li { font: 500 0.78rem/1 var(--mono); padding: 7px 10px; border-radius: 999px; border: 1px solid var(--line); }
+
 /* Stack */
 .stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 @media (max-width: 900px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -232,6 +244,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap">
     <a class="logo" href="#top">DIPAK<span>.mobile</span></a>
     <nav aria-label="Primary">
+      <a class="nl" href="#about">About</a>
       <a class="nl" href="#system">System</a>
       <a class="nl" href="#ai">AI</a>
       <a class="nl" href="#history">History</a>
@@ -303,7 +316,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="proof">
       <div><b>15 yrs</b><span>shipping mobile apps</span></div>
       <div><b>10 yrs</b><span>inside digital banking</span></div>
-      <div><b>7</b><span>banks running my code</span></div>
+      <div><b>8</b><span>banks running my code</span></div>
       <div><b>2 in 1</b><span>iOS and Android, one codebase</span></div>
     </div>
   </div>
@@ -319,14 +332,48 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <li>Alliant</li>
         <li>UFCU</li>
         <li>Eastern Bank</li>
+        <li>Bineo</li>
       </ul>
     </div>
   </div>
 
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label"><b>01</b> / About</span>
+        <h2>A decade in iOS. Ten years inside banks. Now cross-platform and AI-first.</h2>
+      </div>
+      <div class="about">
+        <div class="about-copy">
+          <p class="lead">Mobile engineer with 15 years of experience, built on more than a decade in the iOS ecosystem and extended into Flutter for cross-platform delivery.</p>
+          <p>I've spent my career in service-based companies, shipping apps for clients in banking, insurance, healthcare and e-commerce. I own the full journey: <strong>requirement gathering, architecture, development, testing and release on the App Store</strong>.</p>
+          <p>For the last ten years my focus has been digital banking. On the Backbase platform, I've helped deliver two digital banking apps: <strong>Bineo</strong>, a digital bank in Mexico, and <strong>SNB Digital</strong> for Saudi National Bank. All of it was built in Swift with the Backbase SDK, using the BB design system and BB Flow SDK for onboarding.</p>
+          <p>I also spent two and a half years building a consumer fintech app in <strong>Flutter</strong>, shipping to iOS and Android from a single codebase for a client under NDA. It covered banking, payments, KYC onboarding and lending journeys.</p>
+          <p>I work <strong>AI-first</strong>. I use Claude Code, Cursor and GitHub Copilot every day to scaffold, refactor, test and document code, while keeping architecture, security and final review in my own hands. I'm keen to grow into building generative AI features into products.</p>
+          <p>I'm open to any technology role, remote or with relocation. I bring a strong work ethic and a commitment to shipping high-quality, secure products.</p>
+        </div>
+        <aside class="about-side" aria-label="Banking features delivered">
+          <span class="label">Built end to end on Bineo &amp; SNB Digital</span>
+          <h3>Banking features I've delivered</h3>
+          <ul class="notes">
+            <li><b>Accounts and transactions</b>, transaction details and account statements</li>
+            <li><b>Credit and debit card</b> management</li>
+            <li><b>Personal finance management</b> with interactive graphs</li>
+            <li><b>Identity and security:</b> login, forgot password, OTP, IVR and transaction signing</li>
+          </ul>
+          <span class="label">Domains</span>
+          <ul class="domains"><li>Banking</li><li>Insurance</li><li>Healthcare</li><li>E-commerce</li></ul>
+          <span class="label">Core skills</span>
+          <ul class="chips"><li>Swift</li><li>SwiftUI</li><li>Objective-C</li><li>Flutter</li><li>MVVM</li><li>MVP</li><li>Clean Architecture</li><li>Backbase</li><li>Jenkins</li><li>Fastlane</li></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="system">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label"><b>01</b> / What I bring</span>
+        <span class="label"><b>02</b> / What I bring</span>
         <h2>Write it once, ship it twice, keep it secure.</h2>
         <p>Four things your team gets on day one, whether the app is a Flutter monorepo or a native banking super-app.</p>
       </div>
@@ -362,7 +409,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="block" id="ai">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label"><b>02</b> / AI in my workflow</span>
+        <span class="label"><b>03</b> / AI in my workflow</span>
         <h2>I build with AI every day. I keep the judgement.</h2>
         <p>AI writes a lot of my first drafts. Architecture, security and the final review stay with me, which is how banking code has to be built.</p>
       </div>
@@ -398,7 +445,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="block" id="history">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label"><b>03</b> / Career changelog</span>
+        <span class="label"><b>04</b> / Career changelog</span>
         <h2>15 years of apps people trust with their money.</h2>
         <p>Every version is a real job with real users. The number is my years in production when it started.</p>
       </div>
@@ -464,7 +511,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section class="block" id="stack">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label"><b>04</b> / Stack</span>
+        <span class="label"><b>05</b> / Stack</span>
         <h2>Fluent in Flutter. Native when it matters.</h2>
       </div>
       <div class="stack">
@@ -482,7 +529,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <div class="channel">
         <div>
-          <span class="label"><b style="color:var(--accent);font-weight:500">05</b> / Let's work together</span>
+          <span class="label"><b style="color:var(--accent);font-weight:500">06</b> / Let's work together</span>
           <h2>Building for iOS and Android? Let's make it one great app.</h2>
           <p>I'm open to any technology role: mobile, cross-platform, full-stack or AI-focused, full-time or contract. If your team is building with AI, I want to learn alongside you. I work remotely from India (IST) with easy overlap with Europe, the Middle East and Asia, and I'm happy to relocate. I usually reply within a day.</p>
         </div>
